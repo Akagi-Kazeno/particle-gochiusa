@@ -8,7 +8,8 @@ class ShapeData {
     assetList: string[];
 
     constructor() {
-        this.assetList = ["blur_circle",
+        this.assetList = [
+            "blur_circle",
             "circle",
             "flower",
             "heart",
