@@ -1,4 +1,5 @@
 // CONCATENATED MODULE: ./src/enum/shape-type.ts
+
 /**
  * シェイプの種類を定義したクラスです。
  * 定义了塑形的种类的类别。
