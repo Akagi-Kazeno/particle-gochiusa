@@ -1,12 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>particle-gochiusa</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+</head>
+<body>
+<div id="app"></div>
+<script type="module" src="/src/main.ts"></script>
+<canvas width="1265" height="463" id="js-background" style="position: absolute;z-index: -1"></canvas>
+<!-- ParticleJS -->
+<script src="/src/particle/createjs.min.js"></script>
+<script src="/src/particle/particlejs_gochiusa.js"></script>
+<script>
+    window.addEventListener("load", function () {
+        let container = document.body,
+            canvas1 = document.getElementById("js-background"),
+            queue = null,
+            wait = 300;
+        // ページ読込時にCanvasサイズ設定
+        // 页面读取时Canvas大小设定
+        setCanvasSize();
+        // リサイズ時にCanvasサイズを再設定
+        // 大小调整时重新设定Canvas大小
+        window.addEventListener("resize", function () {
+            clearTimeout(queue);
+            queue = setTimeout(function () {
+                setCanvasSize();
+            }, wait);
+        }, false);
+        // Canvasサイズをコンテナの100%に
+        // Canvas大小达到100%
+        function setCanvasSize() {
+            canvas1.width = window.innerWidth;
+            canvas1.height = window.innerHeight;
+        }
+    }, false);
+    // Stageオブジェクトを作成します。表示リストのルートになります。
+    // 创建Stage对象。成为显示列表的路线。
+    stage = new createjs.Stage("js-background");
+    // パーティクルシステム作成します。
+    // 制作粒子效果
+    particleSystem = new particlejs.ParticleSystem();
+    // パーティクルシステムの描画コンテナーを表示リストに登録します。
+    // 在显示列表中登记分区系统的绘图容器。
+    stage.addChild(particleSystem.container);
+    // Particle Developから保存したパラメーターを反映します。
+    // 反映从Particle Develop保存的参数。
+    particleSystem.importFromJson(
+        // JSONテキストのコピー＆ペースト ここから--
+        // JSON文本复制粘贴到这里--(粒子效果JSON)
+        {
+            "bgColor": "#00000",
+            "width": window.innerWidth,
+            "height": window.innerHeight,
+            "emitFrequency": 10,
+            "startX": window.innerWidth / 2 - 100,
+            "startXVariance": window.innerWidth,
+            "startY": window.innerHeight + 100,
+            "startYVariance": 0,
+            "initialDirection": 317,
+            "initialDirectionVariance": 90,
+            "initialSpeed": 1,
+            "initialSpeedVariance": 10,
+            "friction": 0.01,
+            "accelerationSpeed": 0.0113,
+            "accelerationDirection": 290,
+            "startScale": 1,
+            "startScaleVariance": 1.5,
+            "finishScale": 0,
+            "finishScaleVariance": 0.1,
+            "lifeSpan": 1000,
+            "lifeSpanVariance": 50,
+            "startAlpha": "1",
+            "startAlphaVariance": "0",
+            "finishAlpha": "1",
+            "finishAlphaVariance": "0",
+            "shapeIdList": [
+                "sakura1",
+                "sakura2",
+                "sakura3",
+                "sakura4",
+                "sakura5",
+                "sakura6",
+                "sakura7",
+                "sakura8",
+                "sakura9",
+                "sakura10",
+                "sakura11",
+                "sakura12",
+                "sakura13",
+            ],
+            "startColor": {
+                "hue": "0",
+                "hueVariance": 360,
+                "saturation": 70,
+                "saturationVariance": 0,
+                "luminance": 80,
+                "luminanceVariance": 0
+            },
+            "blendMode": false,
+            "alphaCurveType": "0",
+            "VERSION": "1.0.0"
+        }
+        // JSONテキストのコピー＆ペースト ここまで--
+        // JSON文本复制粘贴到这里--(粒子效果JSON)
+    );
+    // フレームレートの設定
+    // 帧率的设定
+    createjs.Ticker.framerate = 60;
+    // requestAnimationFrameに従った呼び出し
+    // 根据requestAnimationFrame的调用
+    createjs.Ticker.timingMode = createjs.Ticker.RAF;
+    // 定期的に呼ばれる関数を登録
+    // 注册被定期调用的函数
+    createjs.Ticker.addEventListener("tick", handleTick);
+
+    function handleTick() {
+        particleSystem.rotation++;
+        // パーティクルの発生・更新
+        // 粒子的产生、更新
+        particleSystem.update();
+        // 描画を更新する
+        // 更新绘图
+        stage.update();
+    }
+
+    function getWindowSize() {
+        const windowSize = [
+            window.innerWidth,
+        ];
+        const wH = window.innerHeight;
+        return windowSize
+    }
+
+    window.addEventListener("load resize", function () {
+        // パーティクルの発生・更新
+        // 粒子的产生、更新
+        particleSystem.update();
+        // 描画を更新する
+        // 更新绘图
+        stage.update();
+    });
+</script>
+</body>
 </html>
