@@ -18,12 +18,11 @@ namespace lib {
 
         constructor() {
             super();
-            this.initialize();
             // レイヤー 1
             // 图层1
             this.graphics = new asset_shapes_pixi.Graphics();
             this.graphics
-                .beginFill(0xFFFFFF)
+                .beginFill("#FFFFFF")
                 // added lineStyle to match createjs
                 .lineStyle(0)
                 .moveTo(-0.7, -27.8)
@@ -37,9 +36,50 @@ namespace lib {
         }
     }
 
-    triangle.prototype.nominalBounds = new asset_shapes_pixi.Rectangle(-32, -34.8, 64, 55.7);
+    triangle.prototype = new asset_shapes_pixi.drawRect(-32, -34.8, 64, 55.7);
+
+    export class star_10 extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            // レイヤー 1
+            // 图层1
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                // added lineStyle to match createjs
+                .lineStyle(0)
+                .moveTo(-4.3, 18.3)
+                .lineTo(-19.9, 29.3)
+                .lineTo(-14.1, 10.3)
+                .lineTo(-32, 10.3)
+                .lineTo(-19.7, 0.7)
+                .lineTo(-31.2, -8.7)
+                .lineTo(-15.2, -8.8)
+                .lineTo(-21.7, -26.4)
+                .lineTo(-5.4, -16.4)
+                .lineTo(-0.2, -31.8)
+                .lineTo(4.4, -17.6)
+                .lineTo(17.8, -27.4)
+                .lineTo(13.1, -8.5)
+                .lineTo(30.3, -8.1)
+                .lineTo(19.9, 0.1)
+                .lineTo(32, 8.4)
+                .lineTo(12.8, 9.5)
+                .lineTo(18.2, 29.8)
+                .lineTo(4.9, 20)
+                .lineTo(1.4, 31.8)
+                .closePath();
+            // changed addChild to addChildAt
+            this.addChildAt(this.graphics, 0);
+        }
+    }
+
+    star_10.prototype = new asset_shapes_pixi.drawRect(-32, -31.7, 64, 63.6);
 }
 
 export default lib;
 // Execute the following line if you have the necessary dependencies imported:
 // const myTriangle = new lib.triangle();
+// const myStar_10 = new lib.star_10();
