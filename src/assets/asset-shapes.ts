@@ -77,9 +77,38 @@ namespace lib {
     }
 
     star_10.prototype = new asset_shapes_pixi.drawRect(-32, -31.7, 64, 63.6);
+
+    export class star extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            // レイヤー 1
+            // 图层1
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                .lineStyle(0)
+                .moveTo(-0.2, 17.3)
+                .lineTo(-20.2, 31.5)
+                .lineTo(-13, 7.4)
+                .lineTo(-32, -8)
+                .lineTo(-7.8, -8.4)
+                .lineTo(0.3, -32)
+                .lineTo(8, -8.2)
+                .lineTo(32, -7.4)
+                .lineTo(12.8, 7.5)
+                .lineTo(19.4, 32)
+                .closePath();
+            this.addChildAt(this.graphics, 0);
+        }
+    }
+
+    star.prototype = new asset_shapes_pixi.drawRect(-32, -32, 64, 64);
 }
 
 export default lib;
 // Execute the following line if you have the necessary dependencies imported:
 // const myTriangle = new lib.triangle();
 // const myStar_10 = new lib.star_10();
+// const my_star = new lib.star();
