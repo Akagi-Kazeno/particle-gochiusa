@@ -105,6 +105,27 @@ namespace lib {
     }
 
     star.prototype = new asset_shapes_pixi.drawRect(-32, -32, 64, 64);
+
+    export class square extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            // レイヤー 1
+            // 图层1
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill()
+                .moveTo(-32, -32)
+                .lineTo(32, -32)
+                .lineTo(32, 32)
+                .lineTo(-32, 32)
+                .closePath();
+            this.addChildAt(this.graphics, 0);
+        }
+    }
+
+    square.prototype = new asset_shapes_pixi.drawRect(-36, -36, 72, 72);
 }
 
 export default lib;
@@ -112,3 +133,4 @@ export default lib;
 // const myTriangle = new lib.triangle();
 // const myStar_10 = new lib.star_10();
 // const my_star = new lib.star();
+// const my_square = new lib.square();
