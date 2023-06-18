@@ -115,7 +115,9 @@ namespace lib {
             // 图层1
             this.graphics = new asset_shapes_pixi.Graphics();
             this.graphics
-                .beginFill()
+                .beginFill("#FFFFFF")
+                // added lineStyle to match createjs
+                .lineStyle(8, 1, 1)
                 .moveTo(-32, -32)
                 .lineTo(32, -32)
                 .lineTo(32, 32)
@@ -126,6 +128,33 @@ namespace lib {
     }
 
     square.prototype = new asset_shapes_pixi.drawRect(-36, -36, 72, 72);
+
+    export class reverse_blur_circle extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                // added lineStyle to match createjs
+                .lineStyle(8, 1, 1)
+                .moveTo(32, 0)
+                // use quadraticCurveTO to match createjs curveTo
+                .quadraticCurveTo(32, 13.2, 22.6, 22.6)
+                .quadraticCurveTo(13.3, 32, 0, 32)
+                .quadraticCurveTo(-13.2, 32, -22.7, 22.6)
+                .quadraticCurveTo(-32, 13.2, -32, 0)
+                .quadraticCurveTo(-32, -13.3, -22.7, -22.7)
+                .quadraticCurveTo(-13.2, -32, 0, -32)
+                .quadraticCurveTo(13.3, -32, 22.6, -22.7)
+                .quadraticCurveTo(32, -13.3, 32, 0)
+                .closePath();
+            this.addChildAt(this.graphics, 0);
+        }
+    }
+
+    reverse_blur_circle.prototype = new asset_shapes_pixi.drawRect(-36, -36, 72, 72);
 }
 
 export default lib;
@@ -134,3 +163,4 @@ export default lib;
 // const myStar_10 = new lib.star_10();
 // const my_star = new lib.star();
 // const my_square = new lib.square();
+// const my_reverse_blur_circle = new lib.reverse_blur_circle();
