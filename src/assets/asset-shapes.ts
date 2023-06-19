@@ -205,6 +205,50 @@ namespace lib {
     }
 
     kirakira2.prototype = new asset_shapes_pixi.drawRect(-13.4, -32, 26.8, 64);
+
+    export class heart extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                .lineStyle(0)
+                .moveTo(-20.2, 10)
+                .lineTo(-24.8, 3.5)
+                .quadraticCurveTo(-27, 0.1, -28.5, -3.1)
+                .quadraticCurveTo(-30.1, -6.4, -31.1, -9.5)
+                .quadraticCurveTo(-32, -13, -32, -16)
+                .quadraticCurveTo(-32, -19.7, -30.4, -22.7)
+                .quadraticCurveTo(-29.1, -25.4, -26.6, -27.4)
+                .quadraticCurveTo(-24, -29.1, -21, -30.1)
+                .quadraticCurveTo(-18.1, -31.1, -15, -31.1)
+                .quadraticCurveTo(-11.7, -31.1, -8.8, -29.9)
+                .quadraticCurveTo(-6.4, -29, -4.5, -27.4)
+                .quadraticCurveTo(-3, -25.9, -1.7, -23.9)
+                .lineTo(0, -20.8)
+                .lineTo(1.7, -23.9)
+                .quadraticCurveTo(3, -25.9, 4.5, -27.4)
+                .quadraticCurveTo(6.6, -29.1, 8.8, -29.9)
+                .quadraticCurveTo(11.7, -31.1, 15.2, -31.1)
+                .quadraticCurveTo(18.4, -31.1, 21.3, -30.1)
+                .quadraticCurveTo(24.2, -29.1, 26.7, -27.2)
+                .quadraticCurveTo(29.1, -25.3, 30.5, -22.6)
+                .quadraticCurveTo(32, -19.7, 32, -16.1)
+                .quadraticCurveTo(32, -13.3, 31, -9.7)
+                .quadraticCurveTo(30.2, -6.5, 28.5, -3.2)
+                .quadraticCurveTo(27.1, 0, 24.9, 3.3)
+                .lineTo(20.3, 9.7)
+                .quadraticCurveTo(13.4, 17.7, 9.7, 21.6)
+                .lineTo(0, 31)
+                .quadraticCurveTo(-13.6, 18.3, -20.2, 10)
+                .closePath();
+            this.addChildAt(this.graphics, 0);
+        }
+    }
+
+    heart.prototype = new asset_shapes_pixi.drawRect(-32, -31, 64, 62.1);
 }
 
 export default lib;
@@ -216,3 +260,4 @@ export default lib;
 // const my_reverse_blur_circle = new lib.reverse_blur_circle();
 // const my_kirakira = new lib.kirakira();
 // const my_kirakira2 = new lib.kirakira2();
+// const my_heart = new lib.heart();
