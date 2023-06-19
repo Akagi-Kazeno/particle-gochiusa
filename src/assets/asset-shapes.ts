@@ -155,6 +155,56 @@ namespace lib {
     }
 
     reverse_blur_circle.prototype = new asset_shapes_pixi.drawRect(-36, -36, 72, 72);
+
+    export class kirakira extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                .lineStyle(0)
+                .moveTo(-9.6, 9.3)
+                .quadraticCurveTo(-18.9, 0, -32, -0.1)
+                .quadraticCurveTo(-18.9, -0.2, -9.6, -9.6)
+                .quadraticCurveTo(-0.2, -19, -0.1, -32)
+                .quadraticCurveTo(0, -19, 9.4, -9.6)
+                .quadraticCurveTo(18.9, -0.2, 32, -0.1)
+                .quadraticCurveTo(18.9, 0, 9.4, 9.3)
+                .quadraticCurveTo(0, 18.8, -0.1, 32)
+                .quadraticCurveTo(-0.2, 18.8, -9.6, 9.3)
+                .closePath();
+            this.addChildAt(this.graphics, 0);
+        }
+    }
+
+    kirakira.prototype = new asset_shapes_pixi.drawRect(-32, -32, 64, 64);
+
+    export class kirakira2 extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                .lineStyle(0)
+                .moveTo(-4, 9.5)
+                .quadraticCurveTo(-7.8, 0, -13.4, -0.1)
+                .quadraticCurveTo(-7.8, -0.2, -4, -9.9)
+                .quadraticCurveTo(-0.1, -19.2, 0, -32)
+                .quadraticCurveTo(0.1, -19.2, 4, -9.9)
+                .quadraticCurveTo(8, -0.2, 13.4, -0.1)
+                .quadraticCurveTo(8, 0, 4, 9.5)
+                .quadraticCurveTo(0.1, 19, 0, 32)
+                .quadraticCurveTo(-0.1, 19, -4, 9.5)
+                .closePath();
+            this.addChildAt(this.graphics, 0);
+        }
+    }
+
+    kirakira2.prototype = new asset_shapes_pixi.drawRect(-13.4, -32, 26.8, 64);
 }
 
 export default lib;
@@ -164,3 +214,5 @@ export default lib;
 // const my_star = new lib.star();
 // const my_square = new lib.square();
 // const my_reverse_blur_circle = new lib.reverse_blur_circle();
+// const my_kirakira = new lib.kirakira();
+// const my_kirakira2 = new lib.kirakira2();
