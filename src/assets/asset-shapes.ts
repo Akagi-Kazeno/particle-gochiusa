@@ -249,6 +249,89 @@ namespace lib {
     }
 
     heart.prototype = new asset_shapes_pixi.drawRect(-32, -31, 64, 62.1);
+
+    export class flower extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                .lineStyle(0)
+                .moveTo(4, 27.3)
+                .quadraticCurveTo(0.5, 23.7, 0.5, 18.9)
+                .lineTo(0.5, 15.2)
+                .lineTo(-0.5, 15.2)
+                .lineTo(-0.7, 18.9)
+                .quadraticCurveTo(-0.9, 24, -4.1, 27.6)
+                .quadraticCurveTo(-7.4, 31.1, -12.1, 31.1)
+                .quadraticCurveTo(-17, 31.1, -20.8, 27.5)
+                .quadraticCurveTo(-24.7, 23.7, -24.7, 19.1)
+                .quadraticCurveTo(-24.7, 15.3, -22.2, 12.1)
+                .quadraticCurveTo(-19.7, 8.8, -16.1, 7.7)
+                .lineTo(-12.5, 6.4)
+                .lineTo(-12.7, 5.8)
+                .lineTo(-13, 5.4)
+                .lineTo(-16.5, 6.6)
+                .lineTo(-20.2, 7.1)
+                .quadraticCurveTo(-25.3, 7.1, -28.7, 4)
+                .quadraticCurveTo(-32, 0.7, -32, -4.1)
+                .quadraticCurveTo(-32, -9.4, -28.7, -13)
+                .quadraticCurveTo(-25.5, -16.8, -20.6, -16.8)
+                .quadraticCurveTo(-17.8, -16.8, -15, -15.4)
+                .quadraticCurveTo(-12.2, -14, -10.5, -11.6)
+                .lineTo(-8.4, -8.7)
+                .lineTo(-8, -8.8)
+                .lineTo(-7.4, -9.3)
+                .lineTo(-9.6, -12.2)
+                .quadraticCurveTo(-10.7, -14, -11.3, -15.8)
+                .quadraticCurveTo(-11.9, -17.9, -12, -19.9)
+                .quadraticCurveTo(-12, -24.7, -8.5, -28)
+                .quadraticCurveTo(-5.3, -31.1, -0.1, -31.1)
+                .quadraticCurveTo(5.2, -31.1, 8.5, -28)
+                .quadraticCurveTo(11.7, -24.7, 11.8, -19.9)
+                .quadraticCurveTo(11.7, -17.7, 11.2, -15.7)
+                .quadraticCurveTo(10.7, -13.8, 9.5, -12.2)
+                .lineTo(7.4, -9.3)
+                .lineTo(7.8, -9)
+                .lineTo(8.2, -8.7)
+                .lineTo(10.5, -11.6)
+                .quadraticCurveTo(12.2, -14, 14.8, -15.4)
+                .quadraticCurveTo(17.6, -16.8, 20.4, -16.8)
+                .quadraticCurveTo(25.3, -16.8, 28.5, -13)
+                .quadraticCurveTo(32, -9.4, 32, -4.1)
+                .quadraticCurveTo(32, 0.8, 28.5, 4)
+                .quadraticCurveTo(25.3, 7.1, 20, 7.1)
+                .lineTo(16.4, 6.6)
+                .lineTo(12.9, 5.5)
+                .quadraticCurveTo(12.8, 5.6, 12.8, 5.6)
+                .quadraticCurveTo(12.7, 5.7, 12.7, 5.7)
+                .quadraticCurveTo(12.7, 5.8, 12.7, 5.8)
+                .quadraticCurveTo(12.7, 5.9, 12.7, 6)
+                .lineTo(12.5, 6.4)
+                .lineTo(15.9, 7.7)
+                .quadraticCurveTo(19.7, 9.1, 22.1, 12.2)
+                .quadraticCurveTo(24.5, 15.3, 24.5, 19.1)
+                .quadraticCurveTo(24.5, 23.7, 20.8, 27.5)
+                .quadraticCurveTo(16.9, 31.1, 11.9, 31.1)
+                .quadraticCurveTo(7.4, 31.1, 4, 27.3)
+                .closePath()
+                .moveTo(-7.7, -5.9)
+                .quadraticCurveTo(-10.9, -2.7, -10.9, 1.8)
+                .quadraticCurveTo(-10.9, 6.3, -7.7, 9.4)
+                .quadraticCurveTo(-4.6, 12.5, -0.1, 12.5)
+                .quadraticCurveTo(4.4, 12.5, 7.6, 9.4)
+                .quadraticCurveTo(10.6, 6.3, 10.6, 1.8)
+                .quadraticCurveTo(10.6, -2.7, 7.6, -5.9)
+                .quadraticCurveTo(4.4, -9, -0.1, -9)
+                .quadraticCurveTo(-4.6, -9, -7.7, -5.9)
+                .closePath();
+            this.addChildAt(this.graphics, 0);
+        }
+    }
+
+    flower.prototype = new asset_shapes_pixi.drawRect(-32, -31, 64, 62.2);
 }
 
 export default lib;
@@ -261,3 +344,4 @@ export default lib;
 // const my_kirakira = new lib.kirakira();
 // const my_kirakira2 = new lib.kirakira2();
 // const my_heart = new lib.heart();
+// const my_flower = new lib.flower();
