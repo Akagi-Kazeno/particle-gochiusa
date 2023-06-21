@@ -332,6 +332,23 @@ namespace lib {
     }
 
     flower.prototype = new asset_shapes_pixi.drawRect(-32, -31, 64, 62.2);
+
+    export class circle extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                .lineStyle(0)
+                .drawEllipse(-10.8, -10.8, 21.7, 21.7);
+            this.graphics.setTransform(0, 0, 2.949, 2.949);
+            this.addChildAt(this.graphics, 0);
+        }
+    }
+
+    circle.prototype = new asset_shapes_pixi.drawRect(-32, -32, 64, 64);
 }
 
 export default lib;
@@ -345,3 +362,4 @@ export default lib;
 // const my_kirakira2 = new lib.kirakira2();
 // const my_heart = new lib.heart();
 // const my_flower = new lib.flower();
+// const my_circle = new lib.circle();
