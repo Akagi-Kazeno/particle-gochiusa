@@ -350,7 +350,7 @@ namespace lib {
 
     circle.prototype = new asset_shapes_pixi.drawRect(-32, -32, 64, 64);
 
-    export class blurt_circle extends asset_shapes_pixi.DisplayObjectContainer {
+    export class blur_circle extends asset_shapes_pixi.DisplayObjectContainer {
         public graphics: PIXI.Graphics;
 
         constructor() {
@@ -365,7 +365,7 @@ namespace lib {
         }
     }
 
-    blurt_circle.prototype = new asset_shapes_pixi.drawRect(-32.5, -32.5, 65.1, 65.1);
+    blur_circle.prototype = new asset_shapes_pixi.drawRect(-32.5, -32.5, 65.1, 65.1);
 }
 
 export default lib;
@@ -380,3 +380,4 @@ export default lib;
 // const my_heart = new lib.heart();
 // const my_flower = new lib.flower();
 // const my_circle = new lib.circle();
+// const my_blur_circle = new lib.blur_circle();
