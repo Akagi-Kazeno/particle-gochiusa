@@ -32,7 +32,7 @@ namespace lib {
             // changed setTransform to position.set
             this.graphics.position.set(0, -7);
             // changed addChild to addChildAt
-            this.addChildAt(this.graphics, 0);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
@@ -72,7 +72,7 @@ namespace lib {
                 .lineTo(1.4, 31.8)
                 .closePath();
             // changed addChild to addChildAt
-            this.addChildAt(this.graphics, 0);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
@@ -100,7 +100,7 @@ namespace lib {
                 .lineTo(12.8, 7.5)
                 .lineTo(19.4, 32)
                 .closePath();
-            this.addChildAt(this.graphics, 0);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
@@ -123,7 +123,7 @@ namespace lib {
                 .lineTo(32, 32)
                 .lineTo(-32, 32)
                 .closePath();
-            this.addChildAt(this.graphics, 0);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
@@ -150,7 +150,7 @@ namespace lib {
                 .quadraticCurveTo(13.3, -32, 22.6, -22.7)
                 .quadraticCurveTo(32, -13.3, 32, 0)
                 .closePath();
-            this.addChildAt(this.graphics, 0);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
@@ -175,7 +175,7 @@ namespace lib {
                 .quadraticCurveTo(0, 18.8, -0.1, 32)
                 .quadraticCurveTo(-0.2, 18.8, -9.6, 9.3)
                 .closePath();
-            this.addChildAt(this.graphics, 0);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
@@ -200,7 +200,7 @@ namespace lib {
                 .quadraticCurveTo(0.1, 19, 0, 32)
                 .quadraticCurveTo(-0.1, 19, -4, 9.5)
                 .closePath();
-            this.addChildAt(this.graphics, 0);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
@@ -244,7 +244,7 @@ namespace lib {
                 .lineTo(0, 31)
                 .quadraticCurveTo(-13.6, 18.3, -20.2, 10)
                 .closePath();
-            this.addChildAt(this.graphics, 0);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
@@ -327,7 +327,7 @@ namespace lib {
                 .quadraticCurveTo(4.4, -9, -0.1, -9)
                 .quadraticCurveTo(-4.6, -9, -7.7, -5.9)
                 .closePath();
-            this.addChildAt(this.graphics, 0);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
@@ -342,13 +342,30 @@ namespace lib {
             this.graphics
                 .beginFill("#FFFFFF")
                 .lineStyle(0)
-                .drawEllipse(-10.8, -10.8, 21.7, 21.7);
-            this.graphics.setTransform(0, 0, 2.949, 2.949);
-            this.addChildAt(this.graphics, 0);
+                .drawEllipse(-10.8, -10.8, 21.7, 21.7)
+                .setTransform(0, 0, 2.949, 2.949);
+            this.graphics.addChildAt(this.graphics, 0);
         }
     }
 
     circle.prototype = new asset_shapes_pixi.drawRect(-32, -32, 64, 64);
+
+    export class blurt_circle extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                .lineStyle(0)
+                .drawEllipse(-10.8, -10.8, 21.7, 21.7)
+                .setTransform(0, 0, 3, 3)
+            this.graphics.addChildAt(this.graphics, 0);
+        }
+    }
+
+    blurt_circle.prototype = new asset_shapes_pixi.drawRect(-32.5, -32.5, 65.1, 65.1);
 }
 
 export default lib;
