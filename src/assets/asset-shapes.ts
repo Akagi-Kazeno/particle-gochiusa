@@ -366,6 +366,34 @@ namespace lib {
     }
 
     blur_circle.prototype = new asset_shapes_pixi.drawRect(-32.5, -32.5, 65.1, 65.1);
+
+    export class sakura1 extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                .moveTo(26.4, 13.9)
+                .bezierCurveTo(26.5, 11.8, 26.3, 9.5, 25.7, 7)
+                .bezierCurveTo(24.6, 1.7, 22.5, 1.3, 21.1, 0.6)
+                .bezierCurveTo(19.1, -0.5, 16.9, -0.3, 15.6, 1.6)
+                .bezierCurveTo(11.7, 7.3, 11.7, 15.9, 12.9, 22.6)
+                .bezierCurveTo(13.3, 25.3, 13.4, 27.7, 13.2, 29.7)
+                .bezierCurveTo(12.8, 30, 12.4, 30.4, 12, 30.7)
+                .bezierCurveTo(7, 34.8, 2.7, 37.2, 2.7, 37.2)
+                .bezierCurveTo(2.7, 37.2, -2.1, 41.5, 1, 41.2)
+                .bezierCurveTo(2.6, 41.1, 5.1, 41.9, 7.9, 42)
+                .bezierCurveTo(10.7, 42.1, 13.7, 41.6, 16.3, 39)
+                .bezierCurveTo(18.9, 36.4, 21.6, 32, 23.7, 27.3)
+                .bezierCurveTo(25.6, 22.8, 26.8, 18.1, 26.4, 13.9)
+                .closePath();
+            this.graphics.addChildAt(this.graphics, 0);
+        }
+    }
+
+    sakura1.prototype = new asset_shapes_pixi.drawRect(-15, -15, 15, 15);
 }
 
 export default lib;
@@ -381,3 +409,4 @@ export default lib;
 // const my_flower = new lib.flower();
 // const my_circle = new lib.circle();
 // const my_blur_circle = new lib.blur_circle();
+// const my_sakura1 = new lib.sakura1();
