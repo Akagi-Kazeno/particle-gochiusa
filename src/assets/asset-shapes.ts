@@ -655,6 +655,28 @@ namespace lib {
     }
 
     sakura12.prototype = new asset_shapes_pixi.drawRect(-15, -15, 15, 15);
+
+    export class sakura13 extends asset_shapes_pixi.DisplayObjectContainer {
+        public graphics: PIXI.Graphics;
+
+        constructor() {
+            super();
+            this.graphics = new asset_shapes_pixi.Graphics();
+            this.graphics
+                .beginFill("#FFFFFF")
+                .moveTo(27.2, 29.6)
+                .bezierCurveTo(23.7, 28.8, 18.2, 28.1, 12.9, 25.8)
+                .bezierCurveTo(7.7, 23.4, 2.7, 19.5, 0.8, 13.1)
+                .bezierCurveTo(-1.1, 6.5, 0, 0.1, 8.3, 0)
+                .bezierCurveTo(13, -0.1, 15.2, 0.8, 18.6, 4.2)
+                .bezierCurveTo(22.4, 8, 26.2, 14.1, 29, 24)
+                .bezierCurveTo(29.2, 26.1, 31, 30.4, 27.2, 29.6)
+                .closePath();
+            this.graphics.addChildAt(this.graphics, 0);
+        }
+    }
+
+    sakura13.prototype = new asset_shapes_pixi.drawRect(-15, -15, 15, 15);
 }
 
 export default lib;
@@ -682,3 +704,4 @@ export default lib;
 // const my_sakura10 = new lib.sakura10();
 // const my_sakura11 =  new lib.sakura11();
 // const my_sakura12 = new lib.sakura12();
+// const my_sakura_13 = new lib.sakura13();
