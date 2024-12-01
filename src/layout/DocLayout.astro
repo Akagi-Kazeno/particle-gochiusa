@@ -1,0 +1,29 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import {type StarlightPageProps} from "@astrojs/starlight/utils/starlight-page";
+import {sidebar} from '@/config/sidebar';
+
+export interface Props {
+  title: string;
+}
+
+const {title} = Astro.props;
+
+const fromtmatter: StarlightPageProps["frontmatter"] = {
+  title: title,
+  template: 'doc',
+  next: false,
+  prev: false,
+};
+
+const starlightpageProps: StarlightPageProps = {
+  frontmatter: fromtmatter,
+  sidebar: sidebar,
+} as StarlightPageProps;
+---
+
+<StarlightPage {...starlightpageProps}>
+  <div class="sl-markdown-content">
+    <slot/>
+  </div>
+</StarlightPage>

@@ -1,0 +1,98 @@
+---
+import DocLayout from "../../layout/DocLayout.astro";
+import {Code} from '@astrojs/starlight/components';
+
+const exampleCode = `
+ import * as PIXI from 'pixi.js';
+
+  const buildGrid = (graphics) => {
+    for (let i = 0; i < 11; i++) {
+      graphics
+        .moveTo(i * 10, 0)
+        .lineTo(i * 10, 100);
+    }
+    for (let i = 0; i < 11; i++) {
+      graphics
+        .moveTo(0, i * 10)
+        .lineTo(100, i * 10);
+    }
+    return graphics;
+  }
+  const app = new PIXI.Application();
+  await app.init({antialias: true, resizeTo: {width: 800, height: 600}} as any);
+  document.body.appendChild(app.canvas);
+  const gridPixel = buildGrid(new PIXI.Graphics()).stroke({color: 0xffffff, pixelLine: true, width: 1});
+  const grid = buildGrid(new PIXI.Graphics()).stroke({color: 0xffffff, pixelLine: false});
+  grid.x = -100;
+  grid.y = -50;
+  gridPixel.y = -50;
+  const container = new PIXI.Container();
+  container.addChild(grid, gridPixel);
+  container.x = app.screen.width / 2;
+  container.y = app.screen.height / 2;
+  app.stage.addChild(container);
+  let count = 0;
+  app.ticker.add(() => {
+    count += 0.01;
+    container.scale = 1 + (Math.sin(count) + 1) * 2;
+  });
+  const label = new PIXI.Text({
+    text: 'Grid Comparison: Standard Lines (Left) vs Pixel-Perfect Lines (Right)',
+    style: {fill: 0xffffff},
+  });
+  label.position.set(20, 20);
+  label.width = app.screen.width - 40;
+  label.scale.y = label.scale.x;
+  app.stage.addChild(label);
+`
+---
+
+<DocLayout title="example">
+  <div id="pixi-container" class="w-full"></div>
+  <Code code={exampleCode} lang="ts"/>
+</DocLayout>
+
+<script>
+  import * as PIXI from 'pixi.js';
+
+  const buildGrid = (graphics) => {
+    for (let i = 0; i < 11; i++) {
+      graphics
+        .moveTo(i * 10, 0)
+        .lineTo(i * 10, 100);
+    }
+    for (let i = 0; i < 11; i++) {
+      graphics
+        .moveTo(0, i * 10)
+        .lineTo(100, i * 10);
+    }
+    return graphics;
+  }
+  const app = new PIXI.Application();
+  await app.init({antialias: true, resizeTo: {width: 800, height: 600}} as any);
+  document.body.appendChild(app.canvas);
+  const gridPixel = buildGrid(new PIXI.Graphics()).stroke({color: 0xffffff, pixelLine: true, width: 1});
+  const grid = buildGrid(new PIXI.Graphics()).stroke({color: 0xffffff, pixelLine: false});
+  grid.x = -100;
+  grid.y = -50;
+  gridPixel.y = -50;
+  const container = new PIXI.Container();
+  container.addChild(grid, gridPixel);
+  container.x = app.screen.width / 2;
+  container.y = app.screen.height / 2;
+  app.stage.addChild(container);
+  let count = 0;
+  app.ticker.add(() => {
+    count += 0.01;
+    container.scale = 1 + (Math.sin(count) + 1) * 2;
+  });
+  const label = new PIXI.Text({
+    text: 'Grid Comparison: Standard Lines (Left) vs Pixel-Perfect Lines (Right)',
+    style: {fill: 0xffffff},
+  });
+  label.position.set(20, 20);
+  label.width = app.screen.width - 40;
+  label.scale.y = label.scale.x;
+  app.stage.addChild(label);
+  app.start();
+</script>
