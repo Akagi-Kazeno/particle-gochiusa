@@ -48,14 +48,14 @@ const exampleCode = `
 ---
 
 <DocLayout title="example">
-  <div id="pixi-container" class="w-full"></div>
   <Code code={exampleCode} lang="ts"/>
+  <div id="pixi-container" class="w-full"></div>
 </DocLayout>
 
 <script>
   import * as PIXI from 'pixi.js';
 
-  const buildGrid = (graphics) => {
+  const buildGrid = (graphics:any) => {
     for (let i = 0; i < 11; i++) {
       graphics
         .moveTo(i * 10, 0)
@@ -70,7 +70,11 @@ const exampleCode = `
   }
   const app = new PIXI.Application();
   await app.init({antialias: true, resizeTo: {width: 800, height: 600}} as any);
-  document.body.appendChild(app.canvas);
+  const pixiContainer = document.getElementById('pixi-container');
+  pixiContainer!.style.display = 'flex';
+  pixiContainer!.style.justifyContent = 'center';
+  pixiContainer!.appendChild(app.canvas);
+
   const gridPixel = buildGrid(new PIXI.Graphics()).stroke({color: 0xffffff, pixelLine: true, width: 1});
   const grid = buildGrid(new PIXI.Graphics()).stroke({color: 0xffffff, pixelLine: false});
   grid.x = -100;
