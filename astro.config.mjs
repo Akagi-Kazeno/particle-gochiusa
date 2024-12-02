@@ -16,4 +16,6 @@ export default defineConfig({
     }),
     tailwind({applyBaseStyles: false}),
   ],
+  site: 'https://akagi-kazeno.github.io',
+  base: '/particle-gochiusa',
 });
