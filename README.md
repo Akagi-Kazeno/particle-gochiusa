@@ -6,7 +6,8 @@ npm create astro@latest -- --template basics
 
 ## particle
 
-### gochiusa: 实现~~看起来像~~ https://gochiusa.com/bloom/ 的粒子效果。
+### gochiusa: ~~看起来像~~ https://gochiusa.com/bloom/ 的粒子效果。
+### gochiusa-10th: ~~看起来像~~ https://gochiusa.com/anime10th/ 的背景效果。
 
 ## 🚀 Project Structure
 
