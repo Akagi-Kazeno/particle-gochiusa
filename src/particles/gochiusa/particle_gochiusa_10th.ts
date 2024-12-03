@@ -1,11 +1,12 @@
 import * as PIXI from 'pixi.js';
 import {initializePixiApp} from "@/particles/utils/commonUtils.ts";
+import bg from './assets/10th/bg.png';
 
 export async function initParticleGochiusa10th() {
   const app = await initializePixiApp();
 
-  const gradient = new PIXI.Graphics();
-  app.stage.addChild(gradient);
+  const gradientContainer = new PIXI.Container();
+  app.stage.addChild(gradientContainer);
 
   // create a gradient that transitions between two colors
   let hue1 = 0;
@@ -15,7 +16,7 @@ export async function initParticleGochiusa10th() {
   const transitionSpeed = 0.25;
 
   function drawGradient() {
-    gradient.clear();
+    gradientContainer.removeChildren();
     const width = app.screen.width;
     const height = app.screen.height;
 
@@ -36,7 +37,7 @@ export async function initParticleGochiusa10th() {
     sprite.width = width;
     sprite.height = height;
     // add the sprite to the gradient container
-    gradient.addChild(sprite);
+    gradientContainer.addChild(sprite);
   }
 
   function updateColors() {
@@ -46,5 +47,13 @@ export async function initParticleGochiusa10th() {
   }
 
   app.ticker.add(updateColors);
+
+  // Load the background image
+  const backgroundTexture = await PIXI.Assets.load(bg);
+  const background = new PIXI.Sprite(backgroundTexture);
+  background.width = app.screen.width;
+  background.height = app.screen.height;
+  app.stage.addChild(background);
+
   app.start();
 }

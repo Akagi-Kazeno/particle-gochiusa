@@ -1,7 +1,7 @@
 import * as PIXI from 'pixi.js';
 import {initializePixiApp} from "@/particles/utils/commonUtils.ts";
 
-export async function initSakuraPixi() {
+export async function initSakuraParticle() {
   const app = await initializePixiApp();
 
   const container = new PIXI.Container();
