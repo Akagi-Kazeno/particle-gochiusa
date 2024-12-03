@@ -69,61 +69,7 @@ const exampleCode = `
 </DocLayout>
 
 <script>
-  import * as PIXI from 'pixi.js';
+  import {initParticleGochiusa10th} from "../../../particles/gochiusa/particle_gochiusa_10th";
 
-  async function initPixi() {
-    // init pixi app and move it to the center of the screen
-    const app = new PIXI.Application();
-    await app.init({antialias: true, resizeTo: {width: 800, height: 600}} as any);
-    const pixiContainer = document.getElementById('pixi-container');
-    pixiContainer!.style.display = 'flex';
-    pixiContainer!.style.justifyContent = 'center';
-    pixiContainer!.appendChild(app.canvas);
-
-    const gradient = new PIXI.Graphics();
-    app.stage.addChild(gradient);
-
-    // create a gradient that transitions between two colors
-    let hue1 = 0;
-    let hue2 = 30;
-    const saturation = 100;
-    const lightness = 90;
-    const transitionSpeed = 0.5;
-
-    function drawGradient() {
-      gradient.clear();
-      const width = app.screen.width;
-      const height = app.screen.height;
-
-      const canvas = document.createElement('canvas');
-      canvas.width = 2;
-      canvas.height = 2;
-      const ctx = canvas.getContext('2d')!;
-      const gradientFill = ctx.createLinearGradient(0, 2, 2, 0);
-      const color1 = `hsl(${hue1}, ${saturation}%, ${lightness}%)`;
-      const color2 = `hsl(${hue2}, ${saturation}%, ${lightness}%)`;
-      gradientFill.addColorStop(0, color1);
-      gradientFill.addColorStop(1, color2);
-      ctx.fillStyle = gradientFill;
-      ctx.fillRect(0, 0, 2, 2);
-      // create a texture from the canvas
-      const texture = PIXI.Texture.from(canvas);
-      const sprite = new PIXI.Sprite(texture);
-      sprite.width = width;
-      sprite.height = height;
-      // add the sprite to the gradient container
-      gradient.addChild(sprite);
-    }
-
-    function updateColors() {
-      hue1 = (hue1 + transitionSpeed) % 360;
-      hue2 = (hue2 + transitionSpeed) % 360;
-      drawGradient();
-    }
-
-    app.ticker.add(updateColors);
-    app.start();
-  }
-
-  initPixi();
+  initParticleGochiusa10th();
 </script>
