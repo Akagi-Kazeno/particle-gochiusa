@@ -13,7 +13,7 @@ export async function initParticleGochiusa10th() {
   let hue2 = 30;
   const saturation = 100;
   const lightness = 90;
-  const transitionSpeed = 0.25;
+  const transitionSpeed = 0.05;
 
   function drawGradient() {
     gradientContainer.removeChildren();

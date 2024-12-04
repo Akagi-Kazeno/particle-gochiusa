@@ -472,10 +472,10 @@ export async function initParticleGochiusa() {
 
     const updateParticle = () => {
       shape.x += Math.random() * 0.25;
-      shape.y -= Math.random() * 1.5;
-      shape.rotation += 0.02;
-      shape.scale.x *= 0.9993 + Math.random() * 0.0004;
-      shape.scale.y *= 0.9993 + Math.random() * 0.0004;
+      shape.y -= Math.random() * 2;
+      shape.rotation += Math.random() * 0.05;
+      shape.scale.x *= 0.99 + Math.random() * 0.015;
+      shape.scale.y *= 0.99 + Math.random() * 0.015;
       if (shape.x > app.screen.width || shape.y < 0 || shape.scale.x < 0.01) {
         app.stage.removeChild(shape);
         app.ticker.remove(updateParticle);
@@ -491,7 +491,7 @@ export async function initParticleGochiusa() {
     if (particleCount < maxParticles) {
       addParticle();
     }
-  }, Math.random() * 1000);
+  }, Math.random() * 700);
 
   app.start();
 }
